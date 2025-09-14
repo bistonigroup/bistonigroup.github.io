@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="The official website of The Bistoni Group. Learn about our team, publications research areas and more.">
+  <meta name="author" content="Gianluca Regni">
+  <title>The Bistoni Group Website</title>
+
+  <!-- Social stuff -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="The official website of The Bistoni Group. We are a research team at the University of Perugia, focused on developing and applying advanced quantum chemistry methods. Learn about our team, publications and more." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/gianwski/Bistoni-Group-Website/main/images/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Home Page - The Bistoni Group" />
+  <meta property="og:site_name" content="The Bistoni Group" />
+
+  <!-- basic security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Google meta tag for indexing -->
+  <meta name="google-site-verification" content="KLfgrcaq1nKfcsQI8bPlOT-DbOSZ7SVrragmjsAvrZc" />
+  
+  <!-- favicons -->
+  <link rel="icon" href="https://raw.githubusercontent.com/gianwski/Bistoni-Group-Website/main/images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://raw.githubusercontent.com/gianwski/Bistoni-Group-Website/main/images/android-chrome-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/gianwski/Bistoni-Group-Website/main/images/apple-touch-icon" />
+  
+  <style>
+  :root {
+    --bg-gradient:rgba(2, 62, 138, 0.92);
+    --nav-gradient: #0096c7;
+
+    --accent: rgba(120, 210, 255, 1); /* rgba(220, 255, 255, 1) rgba(50, 200, 255, 1) rgba(100, 200, 255, 1)*/
+    --accent2:rgb(120, 188, 255);
+    --bg-card: rgba(255, 255, 255, 0.08);
+    --flip-bg-front: rgba(255, 255, 255, 0.06);
+    --flip-bg-back: rgba(2, 62, 138, 0.92);
+
+    --color-text: #ffffff;
+     --team-bg-color: #0352a0;
+  }
+
+  html {
+    scroll-behavior: smooth !important;
+  }
+
+  .publication-title,
+  .publication-meta,
+  footer p {
+    word-break: break-word;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  nav {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .card,
+  .repo-card {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(30, 30, 60, 0.532);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.3vw, 16px);
+  }
+
+  p, span, button {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  body {
+    background: var(--bg-gradient);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  header {
+    height: 100vh;
+    background: var(--bg-gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  header h1,
+  header p {
+    position: relative;
+    z-index: 1;
+  }
+
+  header h1 {
+    font-size: clamp(2rem, 8vw, 6rem);
+    font-weight: 800;
+    background: #ffff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    color: #e0f7ff;
+  }
+
+  section {
+    padding: 50px 24px;
+    max-width: 2000px;
+    margin: auto;
+  }
+  
+  section h2 {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 40px;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #285b9b;
+    padding: 3px 20px;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: top 0.3s ease;
+  }
+
+  nav.hidden {
+    top: -100px;
+  }
+
+  .nav-brand {
+    font-weight: 800;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+
+  .nav-brand:hover {
+    border-left-color: transparent;
+    cursor: pointer;
+    transform: scale(1.10);
+  }
+
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    cursor: pointer;
+    padding: 6px;
+    transition: all 0.2s ease;
+    z-index: 110;
+  }
+
+  .hamburger:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+
+  .hamburger.active {
+    background: var(--accent);
+    color: #333;
+  }
+
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    background: rgba(30, 30, 60, 0.97);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 80px 0 0 0;
+    transition: right 0.25s ease;
+    z-index: 100;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  nav ul.open {
+    right: 0;
+  }
+
+  nav li {
+    width: 100%;
+    position: relative;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px 25px;
+    display: block;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: none;
+  }
+
+  nav a:hover::before {
+    left: 100%;
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: var(--accent);
+  }
+
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    z-index: 90;
+  }
+
+  .nav-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #news {
+    padding: 60px 20px;
+  }
+
+  .news-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 40px;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .news-track {
+    display: flex;
+    gap: 20px;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    padding: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    will-change: transform, scroll-position;
+    transform: translateZ(0);
+  }
+
+  .news-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .news-card {
+    flex: 0 0 400px;
+    background: rgba(30, 42, 60, 0.372);
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-direction: column;
+  }
+
+  .news-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    white-space: normal;
+  }
+
+  .news-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    border-color: var(--accent2);
+  }
+
+
+  .news-date {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .news-headline {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .news-badge {
+    display: inline-block; 
+    background: #ff6b6b;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    max-width: max-content;
+  }
+
+
+  .news-text {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #fff;
+    margin-bottom: 15px;
+    min-height: 60px;
+  }
+
+  .news-author {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0f7ff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    font-weight: 500;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: max-content;
+  }
+
+  .news-link {
+    display: inline-block;
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .news-link:hover {
+    text-decoration: underline;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .carousel-dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: background 0.3s;
+    padding: 0;
+  }
+
+  .carousel-dots button.active {
+    background: var(--accent);
+  }
+
+  /* blank space for last card */
+  .news-track::after {
+    content: '';
+    flex: 0 0 50px;
+  }
+
+
+
+  .members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .card {
+    background: #1034647c;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    max-width: 360px;
+    min-width: 150px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    border-color: var(--accent2);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .card:hover::before {
+    left: 100%;
+  }
+
+  .card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0);
+  }
+
+  .card:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .card h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    transition: color 0.3s ease;
+  }
+
+  .card p {
+    color: #ccc;
+    margin-bottom: 15px;
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    transition: color 0.3s ease;
+  }
+
+  .card:hover p {
+    color: #e0f7ff;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .social-icons a {
+    color: #ccc;
+    font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+    transition: color 0.3s ease;
+  }
+
+  .social-icons i {
+    font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+  }
+
+  .social-icons a:hover {
+    color: var(--accent2);
+    transform: scale(1.15);
+    transition: transform 0.2s
+  }
+
+  .member-role {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0f7ff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    font-weight: 500;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .card:hover .member-role {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .publication-title {
+    font-weight: bold;
+    padding: 15px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    font-size: clamp(1.0rem, 2.2vw, 1.2rem);
+    margin-bottom: 8px;
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .publication-title strong {
+    font-size: clamp(1rem, 2.1vw, 1.1rem);
+    font-weight: bold;
+  }
+
+  .publication {
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .publication:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+  }
+
+  .publication-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 20px;
+  }
+
+  .publication-content {
+    flex: 1;
+  }
+
+  .publication-meta {
+    display: flex;
+    gap: 15px;
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    color: #ccc;
+    align-items: center;
+  }
+
+  .publication-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  .publication-doi {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+  }
+
+  .publication-doi:hover {
+    text-decoration: underline;
+  }
+
+  .publication-journal {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: clamp(14px, 1.0vw, 16px);
+    color: white;
+    font-weight: 600;
+  }
+
+  .publication-year {
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--accent);
+  }
+
+  .abstract {
+    display: none;
+    margin: 0;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: clamp(14px, 1.2vw, 15px);
+    font-family: 'Quicksand', sans-serif;
+    color: #eee;
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-abstract {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    transition: all 0.3s ease;
+  }
+
+  .btn-abstract:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent);
+  }
+
+  .btn-abstract.active {
+    background: var(--accent);
+    color: #333;
+  }
+
+  .publications-grid {
+    display: grid;
+    gap: 15px;
+    max-width: 2000px;
+    margin: auto;
+  }
+
+  .orca-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    transition: all 0.3s ease;
+  }
+
+  .orca-link:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+    text-shadow: 0 0 8px var(--accent);
+  }
+
+  .repo-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-align: left;
+    max-width: 250px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+
+  .repo-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent);
+  }
+
+  .repo-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .repo-description {
+    color: #ccc;
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  footer {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .social-buttons {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .social-buttons i {
+    font-size: 40px;
+  }
+
+  .social-buttons a {
+    display: inline-block;
+    margin: 0 15px;
+    color: var(--color-text);
+    font-size: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .social-buttons a:hover {
+    color: var(--accent);
+  }
+
+  .github-repos {
+    display: grid;
+    gap: 20px;
+    max-width: 800px;
+    margin: 30px auto 0;
+    grid-template-columns: 1fr;
+  }
+
+  .github-main-button {
+    color: white;
+    font-weight: bold;
+    font-size: clamp(0.8rem, 1.3vw, 2.1rem);
+    text-decoration: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    padding: 15px 30px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .github-main-button i {
+    font-size: clamp(0.9rem, 1.5vw, 2.1rem);
+  }
+
+  .github-main-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  }
+
+  .github-section {
+    text-align: center;
+    margin-top: 20px;
+    padding: 50px 20px;
+  }
+
+  .github-section p {
+    margin-bottom: 60px;
+  }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 10px 10px;
+  }
+
+  .research-card {
+    perspective: 1000px;
+    height: 480px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+
+  .research-card img {
+    background-color: #fff;
+  }
+
+  .research-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .research-card__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .research-card:hover .research-card__inner {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .research-card.is-flipped .research-card__inner {
+    transform: rotateY(180deg);
+  }
+
+  .research-card__front,
+  .research-card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .research-card__front {
+    background: var(--flip-bg-front);
+  }
+
+  .research-card__back {
+    background: var(--flip-bg-back);
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    text-align: justify;
+    justify-content: center;
+    box-sizing: border-box;
+    background: #1034647c;
+  }
+  
+  .research-card__front img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  .research-card__body-front {
+    padding: 1.5rem;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .research-card__front h3,
+  .research-card__back h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .research-card__front p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0f7ff;
+    text-align: center;
+  }
+
+  .research-card__back p {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: justify;
+    overflow-y: auto;
+    max-height: calc(100% - 70px);
+    padding-right: 10px;
+  }
+  
+  .research-card__back p::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .research-card__back p::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+  }
+
+  .research-card__back p::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0);
+  }
+
+  .research-card__body-front{
+    text-align: center;
+    padding: 0.6rem 0.5rem 1rem;
+  }
+
+  .research-card__body-front h3 {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .research-card__body-front h3 span {
+    display: inline-block;
+    transform: translateY(100%);
+    transition: transform 0.6s ease-out;
+  }
+
+  .reveal span {
+    transform: translateY(0);
+  }
+
+  .flip-hint {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 1.2rem;
+    color: #fff;
+    transition: transform 0.3s ease, color 0.3s ease;
+    pointer-events: none;
+  }
+
+  .research-card__front:hover .flip-hint {
+    color: #E0F7FF;
+    transform: rotate(20deg);
+  }
+
+  .front-icons{
+    margin-top: 0.6rem;
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    color: #E0F7FF;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .front-icons i{
+    opacity: 0.85;
+    transition: transform 0.2s;
+  }
+
+  .front-icons i:hover{
+    opacity: 1;
+    transform: scale(1.15);
+    color: white;
+  }
+
+  .main-card {
+    grid-column: 1 / -1;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    display: center;
+    flex-direction: column;
+  }
+
+  .main-card img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-title.slide-up-scale span {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-family: "Inter", sans-serif;
+  }
+
+  .reveal-title {
+    overflow: hidden;
+    margin: 40px 0;
+  }
+
+  .reveal-title span {
+    display: inline-block;
+    transform: translateY(100%) scale(1.2); 
+    transition: transform 0.7s ease-out;
+  }
+
+  .reveal-title.revealed span {
+    transform: translateY(0) scale(1);
+  }
+
+
+  .easter-egg-active {
+    animation: rainbow-bg 2s ease-in-out;
+  }
+
+  .easter-egg-active h1 {
+    animation: bounce 0.5s ease-in-out infinite;
+  }
+
+  .easter-egg-active p {
+    animation: wiggle 0.3s ease-in-out infinite;
+  }
+
+  @keyframes rainbow-bg {
+    0%, 100% { background: var(--bg-gradient); }
+    16% { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); }
+    33% { background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%); }
+    50% { background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%); }
+    66% { background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%); }
+    83% { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+  }
+
+  .parallax-header-new {
+    --parallax-offset: 0px;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-position: center var(--parallax-offset);
+  }
+
+  .parallax-header-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/logo.svg');
+    background-size: contain;
+    background-position: center var(--parallax-offset);
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+    transition: background-position 0.4s ease-out;
+  }
+
+  .parallax-header-new h1 {
+    font-size: clamp(2rem, 8vw, 6rem);
+    font-weight: 800;
+    background: #ffff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideInFromTop 1.5s forwards;
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes slideInFromTop {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* ---- MEDIA ---- */
+  @media (max-width: 768px) {
+
+    p {
+      font-size: clamp(1.0rem, 2.0vw, 1.2rem);
+    }
+
+    nav {
+      padding: 6px 15px;
+    }
+    
+    nav ul {
+      width: 280px;
+      right: -300px;
+    }
+    
+    nav a {
+      font-size: clamp(1.0rem, 2.0vw, 1.2rem);
+      padding: 10px 20px;
+    }
+
+    header {
+      height: auto;
+      min-height: 320px;
+      padding: 30px 5px 10px 5px;
+    }
+
+    header p {
+      font-size: clamp(0.9rem, 1.9vw, 1.1rem);
+      padding: 10px 20px;
+    }
+    
+    header h1 {
+      font-size: 2.4rem;
+      padding: 10px 20px;
+    }
+
+    section {
+      padding: 10px 20px;
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
+
+    section p {
+      margin: 0 auto;
+    }
+
+    section h1 {
+      font-size: 2.0rem;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+    section h2 {
+      font-size: 2.0rem;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+    .reveal-title.slide-up-scale span {
+      text-align: center;
+      font-size: 2.0rem;
+      font-family: "Inter", sans-serif;
+    }
+
+    .reveal-title {
+      overflow: hidden;
+      margin: 10px 0 20px;
+    }
+
+    section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+    footer {
+      padding: 18px 5px;
+      font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    }
+
+  .parallax-header-new::before {
+  background-position: center;
+  background-size: contain;
+  }
+
+    .news-card {
+      flex: 0 0 300px;
+    }
+
+    .news-date {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    }
+
+    .nav-brand {
+      font-size: 1rem;
+    }
+    
+    .hamburger {
+      font-size: 1.2rem;
+      padding: 5px;
+    }
+
+    .card {
+      padding: 15px;
+    }
+
+    .card p {
+      font-size: clamp(1.0rem, 2.0vw, 1.2rem);
+    }
+
+    .card h3 {
+      font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+    }
+
+    .card img, .members .card img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .card img {
+      margin: 0 0 0;
+    }
+
+    .card.main-card {
+      margin-bottom: 0px;
+    }
+
+    .members {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .member-role {
+      margin: 0 0 20px;
+      font-size: clamp(1.0rem, 2.0vw, 1.2rem);
+    }
+
+    .social-buttons a {
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+    }
+
+    .research-grid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .research-card__body-front h3 {
+      font-family: "Inter", sans-serif;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 10px 0 0;
+    }
+
+    .front-icons{
+      padding: 0px 10px;
+    }
+
+    .publication {
+      padding: 40px 20px;
+      margin: 0 auto;
+    }
+
+    .publication-header {
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .publication-title {
+      font-size: clamp(0.9rem, 1.9vw, 1.1rem);
+      padding: 10px;
+      padding-left: 0;
+    }
+
+    .publications-grid {
+      margin-top: 20px;
+    }
+
+    .publication {
+      padding: 20px 10px;
+      margin: 0 auto;
+    }
+
+    .publication-meta {
+      font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .publication-actions {
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .publication-doi{
+      display: center;
+      padding: 4px 8px;
+      font-size: clamp(1.0rem, 2.0vw, 1.2rem);
+    }
+
+    .btn-abstract {
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      font-size: clamp(1.0rem, 2.0vw, 1.2rem);
+    }
+
+    .github-section {
+      padding: 0px 20px;
+      margin-top: 30px;
+    }
+
+    .github-section p {
+      margin: 0px 0px 20px;
+    }
+
+    .github-section a {
+      margin: 0px 0px 0px;
+    }
+
+    .github-repos {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .github-main-button {
+      font-size: 1.2rem;
+      padding: 10px 14px;
+      border-radius: 60px;
+    }
+
+    .github-main-button i {
+      font-size: 1.2rem;
+    }
+
+    .repo-description {
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .abstract {
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .social-icons {
+      margin: 0px 0px 0px;
+    }
+
+    .social-icons a {
+      width: 15px;
+      margin: 0 8px;
+    }
+
+    .social-icons a i {
+      font-size: 19px;
+    }
+
+    .social-buttons {
+      margin: 10px 10px 0px;
+    }
+
+    .social-buttons a {
+      font-size: 35px;
+    }
+
+  }
+  </style>
+</head>
+
+<body>
+  <header class="parallax-header-new">
+    <h1>The Bistoni Group</h1>
+    <p>Development and Application of Quantum Chemistry Methods at the University of Perugia</p>
+  </header>
+
+  <nav>
+    <a href="#" class="nav-brand">Home</a>
+    <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-overlay" onclick="closeMenu()"></div>
+    <ul>
+      <li><a href="#news" onclick="closeMenu()">News</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#background" onclick="closeMenu()">Background</a></li>
+      <li><a href="#members" onclick="closeMenu()">Team</a></li>
+      <li><a href="#research-areas" onclick="closeMenu()">Research Areas</a></li>
+      <li><a href="#publications" onclick="closeMenu()">Selected Publications</a></li>
+      <li><a href="#github" onclick="closeMenu()">GitHub</a></li>
+      <li><a href="#contacts" onclick="closeMenu()">Contacts</a></li>
+    </ul>
+  </nav>
+
+  <section id="news">
+    <h2 class="news-title reveal-title slide-up-scale"><span>News</span></h2>
+    
+    <div class="carousel-wrapper">
+      <div class="news-track">
+        <div class="news-card animate-on-scroll">
+          <div class="news-date"><i class="fas fa-calendar-alt"></i> 26 Aug 2025</div>
+          <div class="news-content">
+            <h3 class="news-headline">We Just Published!</h3>
+            <span class="news-badge" style="background: #eba315">Preprint</span>
+            <p class="news-text">Deciphering Asymmetric Induction in Photoredox Catalysis by Chiral Counteranions</p>
+            
+            <div class="news-footer">
+              <span class="news-author">ChemRxiv</span>
+              <a href="https://chemrxiv.org/engage/chemrxiv/article-details/68a8143c23be8e43d674074f" class="news-link">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card animate-on-scroll">
+          <div class="news-date"><i class="fas fa-calendar-alt"></i> 31 Jul 2025</div>
+          <div class="news-content">
+            <h3 class="news-headline">We Just Published!</h3>
+            <span class="news-badge" style="background:#1580eb">Book chapter</span>
+            <p class="news-text">Local Energy Decomposition of Coupled Cluster Energies: Principles and Applications</p>
+            <span  class="news-author">Springer 2025, 1–24</span>
+            <a href="https://link.springer.com/chapter/10.1007/430_2025_103" class="news-link">Read More</a>
+          </div>
+        </div>
+        <div class="news-card animate-on-scroll">
+          <div class="news-date"><i class="fas fa-calendar-alt"></i> 21 Jul 2025</div>
+          <div class="news-content">
+            <h3 class="news-headline">We Just Published!</h3>
+            <span class="news-badge" style="background: #eba315">Preprint</span>
+            <p class="news-text">Transferable and Transparent Energy Decomposition-based Machine Learning Models for Computing Accurate Reaction Energetics</p>
+            <span  class="news-author">ChemRxiv</span>
+            <a href="https://chemrxiv.org/engage/chemrxiv/article-details/687a04a123be8e43d6dd9354" class="news-link">Read More</a>
+          </div>
+        </div>
+        <div class="news-card animate-on-scroll">
+          <div class="news-date"><i class="fas fa-calendar-alt"></i> 19 Jun 2025</div>
+          <div class="news-content">
+            <h3 class="news-headline">We Just Published!</h3>
+            <span class="news-badge" style="background: #10ac84">Article</span>
+            <p class="news-text">Broadening the Scope of the ETS-NOCV scheme: A Versatile Implementation in ORCA</p>
+            <span class="news-author">J. Chem. Theory Comput. 2025, 21, 16, 7920–7934</span>
+            <a href="https://pubs.acs.org/doi/full/10.1021/acs.jctc.5c01003" class="news-link">Read More</a>
+          </div>
+        </div>
+        <div class="news-card animate-on-scroll">
+          <div class="news-date"><i class="fas fa-calendar-alt"></i> 8 May 2025</div>
+          <div class="news-content">
+            <h3 class="news-headline">We Just Published!</h3>
+            <span class="news-badge" style="background: #10ac84">Article</span>
+            <p class="news-text">A Quantum Chemical Method for Dissecting London Dispersion Energy into Atomic Building Blocks</p>
+            <span class="news-author">ACS Cent. Sci. 2025, 11, 6, 890–898</span>
+            <a href="https://pubs.acs.org/doi/full/10.1021/acscentsci.5c00356" class="news-link">Read More</a>
+          </div>
+        </div>
+      </div>
+      <!-- Pallini indicatori -->
+      <div class="carousel-dots"></div>
+    
+  </section>
+
+
+
+
+  <section id="about">
+    <h2 class="reveal-title slide-up-scale"><span>About</span></h2>
+    <p class="animate-on-scroll" style="text-align: justify;">
+      The Bistoni Group combines advanced quantum chemical methods with machine learning techniques to address complex challenges in theoretical chemistry. Our research spans homogeneous, heterogeneous, and biological catalysis, with particular emphasis on systems that push the limits of conventional computational approaches. Key areas of investigation include:
+      (i) stereocontrol in enantioselective catalysis,
+      (ii) mechanisms of electrocatalytic processes,
+      (iii) the role of London dispersion interactions in catalysis,
+      (iv) environmental effects on chemical reactivity and selectivity, and
+      (v) noncovalent interactions in biomolecules and materials for energy-efficient applications.
+
+      To tackle these problems, we employ state-of-the-art computational tools, many of which are developed within our group or in collaboration with the <a href="https://orcaforum.kofo.mpg.de/" target="_blank" class="orca-link">ORCA team</a>. Our methodological work focuses on:
+      (i) efficient and broadly applicable approaches for analyzing intra- and intermolecular interactions, with particular attention to dispersion and cooperativity,
+      (ii) accurate computational protocols for predicting key spectroscopic and catalytic properties of organometallic and transition-metal complexes, and
+      (iii) cost-effective methods for incorporating environmental effects into quantum chemical models.
+
+      Machine learning plays an increasingly central role in our research, including projects aimed at correcting errors associated with standard computational protocols, accelerating the prediction of reaction energetics, and developing data-driven models to complement and extend traditional electronic structure methods.
+          </p>
+  </section>
+
+  <section id="background">
+    <h2 class="reveal-title slide-up-scale"><span>Background</span></h2>
+    <p class="animate-on-scroll" style="text-align: justify;">
+      Prof. Giovanni Bistoni completed his Ph.D. at the University of Perugia in 2015. He was Postdoctoral Fellow in Prof. Frank Neese's group at the Max Planck Institute for Chemical Energy Conversion and was promoted to Group Leader in 2017. He moved to the Max-Planck-Institut für Kohlenforschung in 2018, where he led the "Intermolecular Interactions and Homogeneous Catalysis" group. He got his habilitation in Theoretical and Computational Chemistry from Universität Duisburg-Essen in 2021. His research group moved to the University of Perugia in January 2022.
+    </p>
+  </section>
+
+  <section id="members">
+    <h2 class="reveal-title slide-up-scale"><span>Team</span></h2>
+    <div class="members">
+      <div class="card main-card animate-on-scroll">
+        <img src="images/webp/giovannibistoni.webp" alt="Giovanni Bistoni">
+        <h3>Giovanni Bistoni</h3>
+        <span class="member-role">Principal Investigator</span>
+        <div class="social-icons">
+          <a href="mailto:giovanni.bistoni@unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/giovanni-bistoni-349ba4b3" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://orcid.org/0000-0002-8555-3442" title="ORCID"><i class="fab fa-orcid"></i></a>
+          <a href="https://scholar.google.com/citations?user=OfDkyicAAAAJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/isaacfleach.webp" alt="Isaac F. Leach">
+        <h3>Isaac F. Leach</h3>
+        <span class="member-role">Postdoctoral Researcher</span>
+        <div class="social-icons">
+          <a href="mailto:isaacfrancois.leach@unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/isaac-f-leach/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://orcid.org/0000-0001-7377-6561" title="ORCID"><i class="fab fa-orcid"></i></a>
+          <a href="https://scholar.google.com/citations?user=ah7wOzEAAAAJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/lorenzobaldinelli.webp" alt="Lorenzo Baldinelli">
+        <h3>Lorenzo Baldinelli</h3>
+        <span class="member-role">PhD Student</span>
+        <div class="social-icons">
+          <a href="mailto:lorenzo.baldinelli@dottorandi.unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://orcid.org/0000-0002-0279-2094" title="ORCID"><i class="fab fa-orcid"></i></a>
+          <a href="https://scholar.google.com/citations?user=gsbh6tMAAAAJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/martinacolucci.webp" alt="Martina Colucci">
+        <h3>Martina Colucci</h3>
+        <span class="member-role">PhD Student</span>
+        <div class="social-icons">
+          <a href="mailto:martina.colucci@dottorandi.unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/martina-colucci-0668192b4/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/carlosjacinto.webp" alt="Carlos Jacinto">
+        <h3>Carlos Jacinto</h3>
+        <span class="member-role">PhD Student</span>
+        <div class="social-icons">
+          <a href="mailto:carlosroberto.jacintomejia@dottorandi.unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/crjacinto/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://orcid.org/0000-0002-3554-9699" title="ORCID"><i class="fab fa-orcid"></i></a>
+          <a href="https://scholar.google.com/citations?user=_pxVHmIAAAAJ&hl=en" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/sofialerda.webp" alt="Sofia Lerda">
+        <h3>Sofia Lerda</h3>
+        <span class="member-role">PhD Student</span>
+        <div class="social-icons">
+          <a href="mailto:sofia.lerda@dottorandi.unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/sofia-lerda/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://orcid.org/0009-0005-8824-6244" title="ORCID"><i class="fab fa-orcid"></i></a>
+          <a href="https://scholar.google.com/citations?user=aPp5ErgAAAAJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </div>
+    <div class="card animate-on-scroll">
+      <img src="images/webp/viniciusmartinelli.webp" alt="Vinicius Martinelli">
+      <h3>Vinicius Martinelli</h3>
+      <span class="member-role">Visiting PhD Student</span>
+      <p style="color: #aaa; margin-bottom: 15px;">2024–2025</p>
+      <div class="social-icons">
+        <a href="mailto:martinelli001@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/gianlucaregni.webp" alt="Gianluca Regni">
+        <h3>Gianluca Regni</h3>
+        <span class="member-role">PhD Student</span>
+        <div class="social-icons">
+          <a href="mailto:gianluca.regni@dottorandi.unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/gianluca-regni/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://orcid.org/0009-0006-9459-519X" title="ORCID"><i class="fab fa-orcid"></i></a>
+          <a href="https://scholar.google.com/citations?user=oHEU9VYAAAAJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://github.com/gianwski" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/marioperez.webp" alt="Mario E. Perez">
+        <h3>Mario E. Perez</h3>
+        <span class="member-role">MSc Student</span>
+        <div class="social-icons">
+          <a href="mailto:marioezequiel.perez@studenti.unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/mario-e-perez-v-4a8511217/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://orcid.org/0009-0004-5412-8832" title="ORCID"><i class="fab fa-orcid"></i></a>
+        </div>
+      </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/moniazarhouni.webp" alt="Monia Zarhouni">
+        <h3>Monia Zarhouni</h3>
+        <span class="member-role">MSc Student</span>
+        <div class="social-icons">
+          <a href="mailto:monia.zarhouni@studenti.unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="card animate-on-scroll">
+        <img src="images/webp/pietrobartolomei.webp" alt="Pietro Bartolomei">
+        <h3>Pietro Bartolomei</h3>
+        <span class="member-role">BSc Student</span>
+        <div class="social-icons">
+          <a href="mailto:pietro.bartolomei@studenti.unipg.it" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="former-members">
+  <h2 class="reveal-title slide-up-scale"><span>Former Member</span></h2>
+  <div class="members">
+
+    <div class="card animate-on-scroll">
+      <img src="images/webp/ronaldcardenas.webp" alt="Ronald Cardenas">
+      <h3>Ronald Cardenas</h3>
+      <span class="member-role">Former MSc Student</span>
+      <p style="color: #aaa; margin-bottom: 15px;">Now PhD Student at Max Planck Institute</p>
+      <div class="social-icons">
+        <a href="mailto:ronaldcs@pks.mpg.de" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/ronald-cardenas/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://scholar.google.com/citations?user=_sDZCZUAAAAJ&hl=it&oi=ao" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="research-areas">
+  <h2 class="reveal-title slide-up-scale"><span>Research Areas</span></h2>
+  <div class="research-grid animate-on-scroll">
+    <article class="research-card">
+      <div class="research-card__inner">
+        <div class="research-card__front">
+          <img src="images/photoredox.png" alt="Computational Catalysis" loading="lazy">
+          <div class="research-card__body-front">
+            <h3>Computational Catalysis</h3>
+          </div>
+        </div>
+        <div class="research-card__back">
+          <h3>Computational Catalysis</h3>
+          <p style="word-break: break-word;">
+            Catalysis is a cornerstone of modern chemical research, playing a role in the production of over 80% of all manufactured goods. Yet, despite advances in theory and computation, the number of catalyst predictions that successfully translate into experimental discovery remains limited. In our group, we aim to bridge this gap by combining state-of-the-art computational tools to elucidate the mechanisms of complex catalytic reactions and the electronic structure of key intermediates.
+            <br><br>
+            Our approach integrates advanced methodologies, including novel local coupled cluster techniques, enhanced conformational sampling algorithms, modern exchange–correlation functionals, machine learning techniques, energy decomposition and bond analysis schemes, quantum embedding frameworks, and both implicit and explicit solvation models. These tools allow us to deliver detailed, predictive insights into catalysis at the atomic level.
+            <br><br>
+            Our work targets the development of new synthetic processes with industrial relevance, with applications in:
+            <br>
+            (i) asymmetric organo- and transition metal catalysis,
+            <br>
+            (ii) electrocatalytic hydrogen and oxygen evolution reactions, and
+            <br>
+            (iii) biocatalysis.
+            <br><br>
+            This research is conducted in close collaboration with experimental groups, enabling a feedback loop between computation and synthesis.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="research-card">
+      <div class="research-card__inner">
+        <div class="research-card__front">
+           <img src="images/adld.png" alt="Noncovalent Interactions" loading="lazy">
+          <div class="research-card__body-front">
+            <h3>Noncovalent Interactions</h3>
+          </div>
+        </div>
+        <div class="research-card__back">
+          <h3>Noncovalent Interactions</h3>
+          <p style="word-break: break-word;">
+            Noncovalent interactions (NCIs) are fundamental to the structure and function of molecules in chemistry, biology, and materials science. In our group, we develop and apply advanced electronic structure methods to gain quantitative and chemically intuitive insights into the strength and nature of NCIs across diverse systems. Many of these methods are developed in-house or in collaboration with the ORCA team, with a focus on combining high accuracy with broad applicability.
+            <br><br>
+            Our work covers a wide range of applications, including:
+            <br>
+            (i) protein–ligand and DNA/RNA–ligand recognition,
+            <br>
+            (ii) catalyst–substrate interactions in homogeneous and heterogeneous catalysis (both organic and organometallic), and
+            <br>
+            (iii) intermolecular interactions in functional solids, such as pharmaceuticals and energy-relevant materials.
+            <br><br>
+            Beyond individual case studies, we aim to deliver general-purpose computational tools that help chemists quantify and understand NCIs across all areas of molecular science.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="research-card">
+      <div class="research-card__inner">
+        <div class="research-card__front">
+          <img src="images/covaled.png" alt="Local Correlation Methods" loading="lazy">
+          <div class="research-card__body-front">
+            <h3>Local Correlation Methods</h3>
+          </div>
+        </div>
+        <div class="research-card__back">
+          <h3>Local Correlation Methods</h3>
+          <p style="word-break: break-word;">
+            By exploiting the "short-sighted" nature of electron correlation, local correlation approaches allow us to reduce the inherent steep scaling of highly correlated wavefunction-based methods. This has enabled highly accurate electronic structure calculations on systems with hundreds of atoms and thousands of basis functions. In our group, we develop computational methods and protocols which can be used to increase the efficiency and accuracy, and hence the range of applicability, of local correlation approaches. Special focus is on the local CCSD(T) approaches. Aside from our work on methods for noncovalent interactions (see above), we also develop extrapolation schemes, embedding approaches and other highly accurate computational protocols of broad applicability.
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="publications">
+  <h2 class="reveal-title slide-up-scale"><span>Selected Publications</span></h2>
+  <div class="publications-grid">
+
+    <div class="publication animate-on-scroll">
+      <div class="publication-header">
+        <div class="publication-content">
+          <div class="publication-title">
+            <strong>A Quantum Chemical Method for Dissecting London Dispersion Energy into Atomic Building Blocks</strong>
+          </div>
+          <div class="publication-meta">
+            <span class="publication-journal">ACS Cent. Sci.</span>
+            <span class="publication-year">2025</span>
+            <span>11, 6, 890–898</span>
+          </div>
+        </div>
+        <div class="publication-actions">
+          <button class="btn-abstract" onclick="toggleAbstract(this)" tabindex="-1">
+            <i class="fas fa-eye"></i> View Abstract
+          </button>
+          <a href="https://doi.org/10.1021/acscentsci.5c00356" target="_blank" class="publication-doi">
+            <i class="fa-solid fa-file-lines" style="margin: 0 0.1em;"  ></i>
+              Read more
+          </a>
+        </div>
+      </div>
+      <div class="abstract">
+        London dispersion (LD) forces are ubiquitous in chemistry and biology, governing processes such as binding of drugs to protein targets, the formation and stability of reaction intermediates, and the selectivity of enantioselective transformations. Developing an experimental or quantum chemical method to quantify atomic contributions to LD energy could open up new pathways for controlling reaction selectivity and guiding molecular design. Herein, we initially introduce Atomic Decomposition of London Dispersion energy (ADLD), a computational method that provides atomic-level resolution in quantifying LD energy at the "gold standard" level of quantum chemistry. Through a series of case studies, we reveal that LD is highly sensitive to variations in the electronic structure, including spin state, charge, and valence bond resonance effects─key factors often overlooked. Furthermore, we uncover the fundamental origin of the recently proposed gravitational-like relationship describing the distance dependence of LD energy in molecular systems. In doing so, we reconcile these recent findings with Fritz London's original formulation in 1930, offering a unified perspective on the fundamental nature of LD forces.
+      </div>
+    </div>
+
+    <div class="publication animate-on-scroll">
+      <div class="publication-header">
+        <div class="publication-content">
+          <div class="publication-title">
+            <strong>The Sugar Cube: Network Control and Emergence in Stereoediting Reactions</strong>
+          </div>
+          <div class="publication-meta">
+            <span class="publication-journal">Science</span>
+            <span class="publication-year">2024</span>
+            <span>385, 456–463</span>
+          </div>
+        </div>
+        <div class="publication-actions">
+          <button class="btn-abstract" onclick="toggleAbstract(this)" tabindex="-1">
+            <i class="fas fa-eye"></i> View Abstract
+          </button>
+          <a href="https://doi.org/10.1126/science.adp2447" target="_blank" class="publication-doi">
+            <i class="fa-solid fa-file-lines" style="margin: 0 0.1em;"></i>
+              Read more
+          </a>
+        </div>
+      </div>
+      <div class="abstract">
+        Stereochemical editing strategies have recently enabled the transformation of readily accessible substrates into rare and valuable products. Typically, site selectivity is achieved by minimizing kinetic complexity by using protecting groups to suppress reactivity at undesired sites (substrate control) or by using catalysts with tailored shapes to drive reactivity at the desired site (catalyst control). We propose "network control," a contrasting paradigm that exploits hidden interactions between rate constants to greatly amplify modest intrinsic biases and enable precise multisite editing. When network control is applied to the photochemical isomerization of hexoses, six of the eight possible diastereomers can be selectively obtained. The amplification effect can be viewed as a mesoscale phenomenon between the limiting regimes of kinetic control in simple chemical systems and metabolic regulation in complex biological systems.
+      </div>
+    </div>
+
+    <div class="publication animate-on-scroll">
+      <div class="publication-header">
+        <div class="publication-content">
+          <div class="publication-title">
+            <strong>Taming Secondary Benzylic Cations in Catalytic Asymmetric SN1 Reactions</strong>
+          </div>
+          <div class="publication-meta">
+            <span class="publication-journal">Science</span>
+            <span class="publication-year">2023</span>
+            <span>382, 325–329</span>
+          </div>
+        </div>
+        <div class="publication-actions">
+          <button class="btn-abstract" onclick="toggleAbstract(this)" tabindex="-1">
+            <i class="fas fa-eye"></i> View Abstract
+          </button>
+          <a href="https://doi.org/10.1126/science.adj7007" target="_blank" class="publication-doi">
+            <i class="fa-solid fa-file-lines" style="margin: 0 0.1em;"></i>
+              Read more
+          </a>
+        </div>
+      </div>
+      <div class="abstract">
+        Benzylic stereogenic centers are ubiquitous in natural products and pharmaceuticals. A potentially general, though challenging, approach toward their selective creation would be asymmetric unimolecular nucleophilic substitution (SN1) reactions that proceed through highly reactive benzylic cations. We now report a broadly applicable solution to this problem by identifying chiral counteranions that pair with secondary benzylic cations to engage in catalytic asymmetric C−C, C−O, and C−N bond-forming reactions with excellent enantioselectivity. The critical cationic intermediate can be accessed from different precursors via Lewis- or Brønsted acid catalysis. Key to our strategy is the use of only weakly basic, confined counteranions that are posited to prolong the lifetime of the carbocation, thereby avoiding nonproductive deprotonation pathways to the corresponding styrene.
+      </div>
+    </div>
+
+    <div class="publication animate-on-scroll">
+      <div class="publication-header">
+        <div class="publication-content">
+          <div class="publication-title">
+            <strong>Catalytic Asymmetric Synthesis of Cannabinoids and Menthol from Neral</strong>
+          </div>
+          <div class="publication-meta">
+            <span class="publication-journal">Nature</span>
+            <span class="publication-year">2023</span>
+            <span>615, 634–639</span>
+          </div>
+        </div>
+        <div class="publication-actions">
+          <button class="btn-abstract" onclick="toggleAbstract(this)" tabindex="-1">
+            <i class="fas fa-eye"></i> View Abstract
+          </button>
+          <a href="https://doi.org/10.1038/s41586-023-05747-9" target="_blank" class="publication-doi">
+            <i class="fa-solid fa-file-lines" style="margin: 0 0.1em;"></i>
+              Read more
+          </a>
+        </div>
+      </div>
+      <div class="abstract">
+        The selective conversion of natural or synthetic neral to (1R,6S)-trans-isopiperitenol would enable and expedite sustainable routes to menthol and cannabinoids. However, this reaction has been considered impossible because its product is more reactive to the required acid catalysts than its starting material, resulting in several side products. We now show that an unsymmetric, strong and confined chiral acid, a highly fluorinated imino-imidodiphosphate, catalyses this process with excellent efficiency and selectivity. Expanding the method to other α,β-unsaturated aldehydes could enable access to new cannabinoids and menthol derivatives not readily accessible previously. Mechanistic studies suggest that the confined catalyst accomplishes this reaction by binding the product in an unreactive conformation, thereby preventing its decomposition. We also show how (1R,6S)-trans-isopiperitenol can be readily converted to pharmaceutically useful cannabinoids and menthol, each in the shortest and most atom-economic routes so far.
+      </div>
+    </div>
+
+    <div class="publication animate-on-scroll">
+      <div class="publication-header">
+        <div class="publication-content">
+          <div class="publication-title">
+            <strong>Unveiling the Delicate Balance of Steric and Dispersion Interactions in Organocatalysis</strong>
+          </div>
+          <div class="publication-meta">
+            <span class="publication-journal">J. Am. Chem. Soc.</span>
+            <span class="publication-year">2020</span>
+            <span>142, 7, 3613–3625</span>
+          </div>
+        </div>
+        <div class="publication-actions">
+          <button class="btn-abstract" onclick="toggleAbstract(this)" tabindex="-1">
+            <i class="fas fa-eye"></i> View Abstract
+          </button>
+          <a href="https://doi.org/10.1021/jacs.9b13725" target="_blank" class="publication-doi">
+            <i class="fa-solid fa-file-lines" style="margin: 0 0.1em;"></i>
+              Read more
+          </a>
+        </div>
+      </div>
+      <div class="abstract">
+        High-level quantum electronic structure calculations are used to provide a deep insight into the mechanism and stereocontrolling factors of two recently developed catalytic asymmetric Diels–Alder (DA) reactions of cinnamate esters with cyclopentadiene. The reactions employ two structurally and electronically very different in situ silylated enantiopure Lewis acid organocatalysts: i.e., binaphthyl-allyl-tetrasulfone (BALT) and imidodiphosphorimidate (IDPi). Each of these catalysts activates only specific substrates in an enantioselective fashion. Emphasis is placed on identifying and quantifying the key noncovalent interactions responsible for the selectivity of these transformations, with the final aim of aiding in the development of designing principles for catalysts with a broader scope. Our results shed light into the mechanism through which the catalyst architecture determines the selectivity of these transformations via a delicate balance of dispersion and steric interactions.
+      </div>
+    </div>
+
+    <div class="publication animate-on-scroll">
+      <div class="publication-header">
+        <div class="publication-content">
+          <div class="publication-title">
+            <strong>Finding Chemical Concepts in the Hilbert Space: Coupled Cluster Analyses of Noncovalent Interactions</strong>
+          </div>
+          <div class="publication-meta">
+            <span class="publication-journal">WIREs Comput. Mol. Sci.</span>
+            <span class="publication-year">2020</span>
+            <span>10, e1442</span>
+          </div>
+        </div>
+        <div class="publication-actions">
+          <button class="btn-abstract" onclick="toggleAbstract(this)" tabindex="-1">
+            <i class="fas fa-eye"></i> View Abstract
+          </button>
+          <a href="https://doi.org/10.1002/wcms.1442" target="_blank" class="publication-doi">
+            <i class="fa-solid fa-file-lines" style="margin: 0 0.1em;"></i>
+              Read more
+          </a>
+        </div>
+      </div>
+      <div class="abstract">
+        Noncovalent interactions (NCIs) play a major role in essentially all fields of chemical research. Energy decomposition analysis (EDA) schemes provide in-depth insights into their nature by decomposing interaction energies into additive contributions, such as electrostatics, polarization, and London dispersion. Although modern local variants of the "gold standard" coupled-cluster singles and doubles method plus perturbative triples (CCSD(T)) have made it possible to accurately quantify NCIs for relatively large systems, extracting chemically meaningful energy terms from such high level electronic structure calculations has been a long lasting challenge in computational chemistry. This review describes basic principles, interpretative aspects and applications of recently developed coupled cluster-based EDAs for the analysis of NCIs. The focus is on computationally efficient methods for systems with a few hundred atoms, for example, the recently introduced local energy decomposition analysis. In order to draw connections between different interpretative frameworks, these schemes are compared with other popular approaches for the quantification and analysis of NCIs, such as Symmetry Adapted Perturbation Theory and supermolecular EDAs based on mean-field as well as correlated approaches. Strengths and limitations of the various techniques are discussed.
+      </div>
+    </div>
+
+    <div class="publication animate-on-scroll">
+      <div class="publication-header">
+        <div class="publication-content">
+          <div class="publication-title">
+            <strong>Local Energy Decomposition of London Dispersion Effects</strong>
+          </div>
+          <div class="publication-meta">
+            <span class="publication-journal">Acc. Chem. Res.</span>
+            <span class="publication-year">2024</span>
+            <span>57, 9, 1411–1420</span>
+          </div>
+        </div>
+        <div class="publication-actions">
+          <button class="btn-abstract" onclick="toggleAbstract(this)" tabindex="-1">
+            <i class="fas fa-eye"></i> View Abstract
+          </button>
+          <a href="https://doi.org/10.1021/acs.accounts.4c00085" target="_blank" class="publication-doi">
+             <i class="fa-solid fa-file-lines" style="margin: 0 0.1em;"></i>
+              Read more
+          </a>
+        </div>
+      </div>
+      <div class="abstract">
+        London dispersion (LD) forces are ubiquitous in chemistry, playing a pivotal role in a wide range of chemical processes. For example, they influence the structure of molecular crystals, the selectivity of organocatalytic transformations, and the formation of biomolecular assemblies. Harnessing these forces for chemical applications requires consistent quantification of the LD energy across a broad and diverse spectrum of chemical scenarios. Despite the great progress made in recent years in the development of experimental strategies for LD quantification, quantum chemical methods remain one of the most useful tools in the hand of chemists for the study of these weak interactions. Unfortunately, the accurate quantification of LD effects in complex systems poses many challenges for electronic structure theories. One of the problems stems from the fact that LD forces originate from long-range electronic dynamic correlation, and hence, their rigorous description requires the use of complex, highly correlated wave function-based methods. These methods typically feature a steep scaling with the system size, limiting their applicability to small model systems. Another core challenge lies in disentangling short-range from long-range dynamic correlation, which from a rigorous quantum mechanical perspective is not possible.
+
+        In this Account, we describe our research endeavors in the development of broadly applicable computational methods for LD quantification in molecular chemistry as well as challenging applications of these schemes in various domains of chemical research. Our strategy lies in the use of local correlation theories to reduce the computational cost associated with complex electronic structure methods while providing at the same time a simple means of decomposition of dynamic correlation into its long-range and short-range components. In particular, the local energy decomposition (LED) scheme at the domain-based local pair natural orbital coupled cluster (DLPNO-CCSD(T)) level has emerged as a powerful tool in our research, offering a clear-cut quantitative definition of the LD energy that remains valid across a plethora of different chemical scenarios. Typical applications of this scheme are examined, encompassing protein–ligand interactions and reactivity studies involving many fragments and complex electronic structures. In addition, our research also involves the development of novel cost-effective methodologies, which exploit the LED definition of the LD energy, for LD energy quantification that are, in principle, applicable to systems with thousands of atoms. The Hartree–Fock plus London Dispersion (HFLD) scheme, correcting the HF interaction energy using an approximate CCSD(T)-based LD energy, is a useful, parameter-free electronic structure method for the study of LD effects in systems with hundreds of molecular fragments. However, the usefulness of the LED scheme reaches beyond providing an interpretation of the calculated DLPNO-CCSD(T) or DLPNO-MP2 interaction energies. For example, the dispersion energies obtained from the LED can be fruitfully used in order to parametrize semiempirical dispersion models. We will demonstrate this in the context of an emerging semiempirical method, namely, the Natural Orbital Tied Constructed Hamiltonian (NOTCH) method. NOTCH incorporates LED-derived LD energies and shows promising accuracy at a minimum amount of empiricism. Thus, it holds substantial promise for large and complex systems.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+  <section id="github" class="github-section">
+    <h2 class="reveal-title slide-up-scale"><span>GitHub</span></h2>
+    <p>The group maintains a repository to share various scripts and programs.</p>
+    
+    <a href="https://github.com/bistonigroup" class="github-main-button" target="_blank">
+      <i class="fab fa-github"></i> Visit Our GitHub
+    </a>
+
+    <!-- <div class="github-repos">
+      <div class="repo-card">
+        <div class="repo-name">
+          <i class="fas fa-code"></i>
+          <span>LDDsuite</span>
+        </div>
+        <div class="repo-description">
+          London Dispersion Density (LDD) Suite for computing atomic contributions to London dispersion energy.
+        </div>
+      </div>
+    </div> -->
+  </section>
+
+  <section id="contacts">
+    <h2 class="reveal-title slide-up-scale"><span>Contacts</span></h2>
+    <p style="text-align:center;">
+      Department of Chemistry, Biology and Biotechnology, University of Perugia
+      Via Elce di Sotto, 8 06123 – Perugia, Italy<br />
+      Email: <a href="mailto:giovanni.bistoni@unipg.it" style="color: var(--accent);">giovanni.bistoni@unipg.it</a>
+    </p>
+    <div class="social-buttons">
+      <a href="https://x.com/BistoniGroup" target="_blank" aria-label="X (Twitter)">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+    </div>
+  </section>
+  <script>
+
+    // --- carousel dots ---
+    const newsTrack = document.querySelector('.news-track');
+    const carouselDotsContainer = document.querySelector('.carousel-dots');
+    const newsCards = document.querySelectorAll('.news-card');
+
+    const cardWidth = newsCards[0].offsetWidth;
+    const gap = 20;
+    const totalCards = newsCards.length;
+
+    function createDots() {
+      for (let i = 0; i < totalCards; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('dot');
+        if (i === 0) {
+          dot.classList.add('active');
+        }
+        dot.addEventListener('click', () => {
+          scrollToCard(i);
+        });
+        carouselDotsContainer.appendChild(dot);
+      }
+    }
+
+    function scrollToCard(index) {
+      const scrollPosition = index * (cardWidth + gap);
+      newsTrack.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+      updateDots(index);
+    }
+
+    function updateDots(index) {
+      const dots = document.querySelectorAll('.carousel-dots .dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    createDots();
+
+    let lastScrollPosition = newsTrack.scrollLeft;
+    newsTrack.addEventListener('scroll', () => {
+      clearTimeout(newsTrack.scrollTimeout);
+      newsTrack.scrollTimeout = setTimeout(() => {
+        const currentScrollPosition = newsTrack.scrollLeft;
+        const currentCardIndex = Math.round(currentScrollPosition / (cardWidth + gap));
+        updateDots(currentCardIndex);
+      }, 150);
+    });
+
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    function dragStart(e) {
+      isDragging = true;
+      startX = e.pageX || e.touches[0].pageX;
+      scrollLeft = newsTrack.scrollLeft;
+      newsTrack.classList.add('dragging');
+    }
+
+    function drag(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+
+      const x = e.pageX || e.touches[0].pageX;
+      const walk = (x - startX) * 1.5;
+
+      newsTrack.scrollLeft = scrollLeft - walk;
+    }
+
+    function dragEnd() {
+      isDragging = false;
+      newsTrack.classList.remove('dragging');
+    }
+
+    // Mouse Events
+    newsTrack.addEventListener('mousedown', dragStart);
+    newsTrack.addEventListener('mousemove', drag);
+    newsTrack.addEventListener('mouseup', dragEnd);
+    newsTrack.addEventListener('mouseleave', dragEnd);
+
+    // Touch Events (for mobile)
+    newsTrack.addEventListener('touchstart', dragStart);
+    newsTrack.addEventListener('touchmove', drag);
+    newsTrack.addEventListener('touchend', dragEnd);
+
+
+    // ---------------------
+
+    // Easter egg functionality
+    let clickCount = 0;
+    let clickTimer;
+    const header = document.querySelector('header');
+
+    header.addEventListener('click', function() {
+      clickCount++;
+      
+      if (clickCount === 1) {
+        clickTimer = setTimeout(() => {
+          clickCount = 0;
+        }, 2000);
+      } else if (clickCount >= 5) {
+        // Trigger easter egg!
+        clearTimeout(clickTimer);
+        clickCount = 0;
+        
+        header.classList.add('easter-egg-active');
+        
+        // Play a fun sound effect (if supported)
+        try {
+          const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          const oscillator = audioContext.createOscillator();
+          const gainNode = audioContext.createGain();
+          
+          oscillator.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          
+          oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+          oscillator.frequency.setValueAtTime(880, audioContext.currentTime + 0.1);
+          oscillator.frequency.setValueAtTime(660, audioContext.currentTime + 0.2);
+          
+          gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+          gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+          
+          oscillator.start(audioContext.currentTime);
+          oscillator.stop(audioContext.currentTime + 0.3);
+        } catch (e) {
+          // Audio not supported, continue silently
+        }
+        
+        // Remove easter egg after 3 seconds
+        setTimeout(() => {
+          header.classList.remove('easter-egg-active');
+        }, 3000);
+      }
+    });
+
+    function toggleAbstract(button) {
+      const publication = button.closest('.publication');
+      const abstract = publication.querySelector('.abstract');
+      const icon = button.querySelector('i');
+      
+      if (abstract.style.display === 'block') {
+        abstract.style.display = 'none';
+        icon.className = 'fas fa-eye';
+        button.textContent = ' View Abstract';
+        button.classList.remove('active');
+      } else {
+        abstract.style.display = 'block';
+        icon.className = 'fas fa-eye-slash';
+        button.textContent = ' Hide Abstract';
+        button.classList.add('active');
+      }
+      
+      button.prepend(icon);
+    }
+
+    // Navigation bar visibility on scroll
+    let lastScrollTop = 0;
+    let scrollThreshold = 100;
+    let isScrolling = false;
+    let menuOpen = false;
+
+    function handleScroll() {
+      if (isScrolling || menuOpen) return;
+      
+      isScrolling = true;
+      requestAnimationFrame(() => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        const nav = document.querySelector('nav');
+        const headerHeight = document.querySelector('header').offsetHeight;
+        
+        if (currentScroll > headerHeight + scrollThreshold) {
+          if (currentScroll > lastScrollTop) {
+            nav.classList.add('hidden');
+          } else {
+            nav.classList.remove('hidden');
+          }
+        } else {
+          nav.classList.remove('hidden');
+        }
+        
+        lastScrollTop = currentScroll;
+        isScrolling = false;
+      });
+    }
+
+    let scrollTimeout;
+    function throttledScroll() {
+      if (scrollTimeout) return;
+      
+      scrollTimeout = setTimeout(() => {
+        handleScroll();
+        scrollTimeout = null;
+      }, 10);
+    }
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+
+    // Menu hamburger functions
+    function toggleMenu() {
+      const menu = document.querySelector('nav ul');
+      const overlay = document.querySelector('.nav-overlay');
+      const hamburger = document.querySelector('.hamburger');
+      const icon = hamburger.querySelector('i');
+      
+      requestAnimationFrame(() => {
+        menu.classList.toggle('open');
+        overlay.classList.toggle('open');
+        hamburger.classList.toggle('active');
+        
+        if (menu.classList.contains('open')) {
+          icon.className = 'fas fa-times';
+          menuOpen = true;
+          document.querySelector('nav').classList.remove('hidden');
+        } else {
+          icon.className = 'fas fa-bars';
+          menuOpen = false;
+        }
+      });
+    }
+
+    function closeMenu() {
+      const menu = document.querySelector('nav ul');
+      const overlay = document.querySelector('.nav-overlay');
+      const hamburger = document.querySelector('.hamburger');
+      const icon = hamburger.querySelector('i');
+      
+      requestAnimationFrame(() => {
+        menu.classList.remove('open');
+        overlay.classList.remove('open');
+        hamburger.classList.remove('active');
+        icon.className = 'fas fa-bars';
+        menuOpen = false;
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('click', function(e) {
+      const nav = document.querySelector('nav');
+      const menu = document.querySelector('nav ul');
+      
+      if (menu.classList.contains('open') && 
+          !nav.contains(e.target) && 
+          !e.target.closest('.nav-overlay')) {
+        closeMenu();
+      }
+    });
+
+    // --- scrolling interaction ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+
+      const options = {
+        root: null,
+        threshold: 0.2,
+        rootMargin: "0px"
+      };
+
+      const callback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(callback, options);
+
+      elementsToAnimate.forEach(element => {
+        observer.observe(element);
+      });
+    });
+
+  // -- card flipping interaction ---
+  document.addEventListener('DOMContentLoaded', () => {
+      const researchCards = document.querySelectorAll('.research-card');
+
+      researchCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault(); 
+          
+          if (e.currentTarget.contains(e.target)) {
+            card.classList.toggle('is-flipped');
+          }
+        });
+      });
+  });
+
+  // --- side-up + scale animation ---
+  document.addEventListener("DOMContentLoaded", () => {
+    const titles = document.querySelectorAll(".reveal-title.slide-up-scale");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.5
+    });
+
+    titles.forEach(title => observer.observe(title));
+  });
+
+  // Parallax effect when scrolling on header
+  const header1 = document.querySelector('.parallax-header-new');
+    
+    if (header1) {
+      header1.style.setProperty('--parallax-offset', '0px'); 
+
+      window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const parallaxSpeed = 0.5; 
+        const newBackgroundPosition = -scrollPosition * parallaxSpeed + 'px';
+        
+        header1.style.setProperty('--parallax-offset', newBackgroundPosition);
+      });
+    }
+  </script>
+
+  <footer>
+    <p>All rights reserved. Design and development by Gianluca Regni. </p>
+  </footer>
+</body>
+</html>
