@@ -58,7 +58,7 @@
     --bg-gradient:rgba(2, 62, 138, 0.92);
     --nav-gradient: #0096c7;
 
-    --accent: rgba(120, 210, 255, 1); /* rgba(220, 255, 255, 1) rgba(50, 200, 255, 1) rgba(100, 200, 255, 1)*/
+    --accent: rgb(120, 188, 255); /* rgba(220, 255, 255, 1) rgba(50, 200, 255, 1) rgba(100, 200, 255, 1)*/
     --accent2:rgb(120, 188, 255);
     --bg-card: rgba(255, 255, 255, 0.08);
     --flip-bg-front: rgba(255, 255, 255, 0.06);
@@ -93,7 +93,7 @@
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background: rgba(30, 30, 60, 0.532);
+    background: var(--flip-bg-front);
   }
 
   * {
@@ -325,7 +325,7 @@
 
   .news-card {
     flex: 0 0 400px;
-    background: rgba(30, 42, 60, 0.372);
+    background: var(--flip-bg-front);
     border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 12px;
     padding: 20px;
@@ -356,7 +356,7 @@
 
   .news-date {
     font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-    color: var(--accent);
+    color: var(--color-text);
     margin-bottom: 10px;
   }
 
@@ -404,13 +404,14 @@
   .news-link {
     display: inline-block;
     font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-    color: var(--accent);
+    color: var(--color-text);
     text-decoration: none;
     font-weight: 600;
   }
 
   .news-link:hover {
     text-decoration: underline;
+    color: var(--accent2);
   }
 
   .carousel-dots {
@@ -451,7 +452,7 @@
   }
 
   .card {
-    background: #1034647c;
+    background: var(--flip-bg-front);
     border-radius: 12px;
     padding: 25px;
     text-align: center;
@@ -1951,7 +1952,7 @@
 
   <section id="github" class="github-section">
     <h2 class="reveal-title slide-up-scale"><span>GitHub</span></h2>
-    <p>The group maintains a repository to share various scripts and programs.</p>
+    <p class="animate-on-scroll">The group maintains a repository to share various scripts and programs.</p>
     
     <a href="https://github.com/bistonigroup" class="github-main-button" target="_blank">
       <i class="fab fa-github"></i> Visit Our GitHub
@@ -1972,7 +1973,7 @@
 
   <section id="contacts">
     <h2 class="reveal-title slide-up-scale"><span>Contacts</span></h2>
-    <p style="text-align:center;">
+    <p class="animate-on-scroll"; style="text-align:center;">
       Department of Chemistry, Biology and Biotechnology, University of Perugia
       Via Elce di Sotto, 8 06123 – Perugia, Italy<br />
       Email: <a href="mailto:giovanni.bistoni@unipg.it" style="color: var(--accent);">giovanni.bistoni@unipg.it</a>
