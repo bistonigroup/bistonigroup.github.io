@@ -67,11 +67,23 @@
   html {
     scroll-behavior: smooth !important;
     background: var(--bg-gradient);
+
   }
+  
+
+  #loader{
+    position:fixed; inset:0; z-index:9999;
+    background:#111;
+    display:flex;
+    align-items:center; justify-content:center;
+    color:#ececec; font-family:Inter,sans-serif; font-size:1.1rem;
+    font-family: 'Quicksand', sans-serif;
+  }
+  #loader.hidden{ display:none; }
 
   footer {
     background: rgba(0, 0, 0, 0.3);
-    color: white;
+    color: var(--color-text);
     text-align: center;
     padding: 40px 20px;
   }
@@ -1416,6 +1428,8 @@
 
 <body>
 
+  <div id="loader"> </div>
+
   <header class="header">
       <div class="header-content-container">
         <img src="images/logo.png" alt="Bistoni Group Logo" class="logo">
@@ -2319,6 +2333,10 @@
   //      header1.style.setProperty('--parallax-offset', newBackgroundPosition);
   //    });
   //  }
+
+window.addEventListener('load', () => {
+  document.getElementById('loader').classList.add('hidden');
+});
 
   </script>
 
