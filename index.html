@@ -1123,7 +1123,8 @@
   }
 
   .easter-egg-active h1 {
-    animation: bounce 0.5s ease-in-out infinite;
+    opacity: 1;
+    animation: bounce-title 0.5s ease-in-out infinite;
   }
 
   .easter-egg-active p {
@@ -1139,7 +1140,7 @@
     83% { background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); }
   }
 
-  @keyframes bounce {
+  @keyframes bounce-title {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
